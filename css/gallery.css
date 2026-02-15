@@ -1,0 +1,269 @@
+/* ===== FILTER BAR ===== */
+.filter-bar {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 100;
+  background-color: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--charcoal-600);
+}
+
+.filter-bar__buttons {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-subheading);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--charcoal-300);
+  border: 1px solid var(--charcoal-600);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--gold-400);
+  color: var(--gold-400);
+}
+
+.filter-btn.active {
+  background-color: var(--gold-400);
+  color: var(--charcoal-900);
+  border-color: var(--gold-400);
+}
+
+/* ===== GALLERY GRID ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+.gallery-item {
+  transition: all 0.4s ease;
+}
+
+.gallery-item.hiding {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.gallery-item.hidden {
+  display: none;
+}
+
+/* ===== BEFORE/AFTER SLIDER ===== */
+.before-after {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: ew-resize;
+  user-select: none;
+  aspect-ratio: 16/9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.before-after__before,
+.before-after__after {
+  position: absolute;
+  inset: 0;
+}
+
+.before-after__before .placeholder-img,
+.before-after__after .placeholder-img {
+  position: absolute;
+  inset: 0;
+}
+
+.before-after__after {
+  clip-path: inset(0 0 0 50%);
+}
+
+.before-after__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background-color: var(--gold-400);
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.before-after__handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--gold-400);
+  border: 3px solid var(--white);
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  box-shadow: var(--shadow-md);
+}
+
+.before-after__handle svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--charcoal-900);
+}
+
+.before-after__label {
+  position: absolute;
+  bottom: var(--space-md);
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-subheading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: rgba(17, 17, 17, 0.8);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.before-after__label--before {
+  left: var(--space-md);
+}
+
+.before-after__label--after {
+  right: var(--space-md);
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox__content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  transform: scale(0.9);
+  transition: transform var(--transition-base);
+}
+
+.lightbox.open .lightbox__content {
+  transform: scale(1);
+}
+
+.lightbox__image {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.lightbox__placeholder {
+  width: 70vw;
+  height: 60vh;
+  max-width: 900px;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2001;
+  border: 1px solid var(--charcoal-600);
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+}
+
+.lightbox__close:hover {
+  border-color: var(--gold-400);
+  color: var(--gold-400);
+}
+
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.25rem;
+  cursor: pointer;
+  border: 1px solid var(--charcoal-600);
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+  z-index: 2001;
+}
+
+.lightbox__nav:hover {
+  border-color: var(--gold-400);
+  color: var(--gold-400);
+}
+
+.lightbox__nav--prev {
+  left: var(--space-lg);
+}
+
+.lightbox__nav--next {
+  right: var(--space-lg);
+}
+
+.lightbox__info {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2001;
+}
+
+.lightbox__title {
+  font-family: var(--font-subheading);
+  font-size: 1.1rem;
+  color: var(--white);
+}
+
+.lightbox__category {
+  font-size: 0.85rem;
+  color: var(--gold-400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

@@ -1,0 +1,44 @@
+/* ===== PAGE TRANSITION OVERLAY ===== */
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--gold-400);
+  z-index: 9999;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+/* Body starts hidden, revealed after page load animation */
+body.loading {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/*
+  Animation initial states are NOT set in CSS.
+  GSAP sets them via JS so content is visible by default
+  if JS fails to load.
+*/
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-overlay {
+    display: none;
+  }
+
+  body.loading {
+    opacity: 1;
+  }
+
+  .hero__scroll-line {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

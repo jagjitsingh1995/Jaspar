@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Circle border -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#8a8a8a" stroke-width="3"/>
+  <!-- Star -->
+  <polygon points="100,25 118,72 168,72 127,103 143,152 100,125 57,152 73,103 32,72 82,72"
+    fill="#d4af37" stroke="none"/>
+  <!-- J letter -->
+  <text x="100" y="115" text-anchor="middle" font-family="Arial Black, Arial, sans-serif"
+    font-size="52" font-weight="900" fill="#1a1a1a">J</text>
+</svg>

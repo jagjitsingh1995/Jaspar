@@ -1,0 +1,63 @@
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--charcoal-100);
+  background-color: var(--charcoal-800);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--gold-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-subheading);
+  color: var(--white);
+  font-weight: 400;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: clamp(1.125rem, 2vw, 1.5rem); }
+
+p {
+  color: var(--charcoal-100);
+  max-width: 65ch;
+}
+
+.text-gold { color: var(--gold-400); }
+.text-muted { color: var(--charcoal-300); }
+.text-white { color: var(--white); }
+.text-center { text-align: center; }
+
+a:hover {
+  color: var(--gold-400);
+}
+
+::selection {
+  background-color: var(--gold-400);
+  color: var(--charcoal-900);
+}
+
+.section-label {
+  font-family: var(--font-subheading);
+  font-size: 0.875rem;
+  color: var(--gold-500);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-sm);
+}
+
+.section-title {
+  margin-bottom: var(--space-lg);
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--charcoal-300);
+  max-width: 600px;
+}

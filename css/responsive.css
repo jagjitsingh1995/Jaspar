@@ -1,0 +1,129 @@
+/* ===== MOBILE FIRST BREAKPOINTS ===== */
+
+/* Small devices (max 640px) */
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 1rem;
+    --nav-height: 64px;
+  }
+
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-bar__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar__links {
+    display: none;
+  }
+
+  .filter-bar__buttons {
+    padding: 0 var(--space-md);
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .filter-bar__buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lightbox__nav--prev {
+    left: var(--space-sm);
+  }
+
+  .lightbox__nav--next {
+    right: var(--space-sm);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-band .btn {
+    margin: var(--space-sm) 0;
+  }
+
+  /* Timeline adjustments */
+  .timeline__item {
+    padding-left: var(--space-xl);
+  }
+
+  .timeline__item--right {
+    padding-left: var(--space-xl);
+    padding-right: 0;
+  }
+}
+
+/* Medium devices (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar__links {
+    display: none;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large devices (1025px+) */
+@media (min-width: 1025px) {
+  .hamburger {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+}
