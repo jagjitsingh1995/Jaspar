@@ -8,6 +8,13 @@ function initPageTransitions() {
   var SLICE_COUNT = 5;
   var directions = ['horizontal', 'vertical'];
 
+  function createLogo() {
+    var logo = document.createElement('div');
+    logo.className = 'transition-logo';
+    logo.innerHTML = 'JASPAR<span>FABRICATION LTD</span>';
+    return logo;
+  }
+
   // Pick a random direction for each transition
   function setupSlices(direction) {
     overlay.innerHTML = '';
@@ -17,12 +24,16 @@ function initPageTransitions() {
       slice.className = 'slice';
       overlay.appendChild(slice);
     }
-    return overlay.querySelectorAll('.slice');
+    var logo = createLogo();
+    overlay.appendChild(logo);
+    return { slices: overlay.querySelectorAll('.slice'), logo: logo };
   }
 
   // Entry animation: reveal the page by collapsing slices
   var entryDir = directions[Math.floor(Math.random() * directions.length)];
-  var slices = setupSlices(entryDir);
+  var setup = setupSlices(entryDir);
+  var slices = setup.slices;
+  var logo = setup.logo;
   var isHorizontal = entryDir === 'horizontal';
 
   // Set slices to fully cover the page
@@ -38,8 +49,21 @@ function initPageTransitions() {
     },
   });
 
-  // Animate slices out with stagger
-  gsap.to(slices, {
+  // Show logo first, then collapse slices
+  gsap.set(logo, { opacity: 1, scale: 1 });
+
+  var entryTl = gsap.timeline();
+
+  // Logo shrinks and fades out
+  entryTl.to(logo, {
+    scale: 0.5,
+    opacity: 0,
+    duration: 0.4,
+    ease: 'power2.in',
+  });
+
+  // Slices collapse to reveal page
+  entryTl.to(slices, {
     scaleY: isHorizontal ? 0 : undefined,
     scaleX: isHorizontal ? undefined : 0,
     duration: 0.6,
@@ -51,7 +75,7 @@ function initPageTransitions() {
     onComplete: function () {
       document.body.classList.remove('loading');
     },
-  });
+  }, '-=0.2');
 
   // Intercept internal links for exit animation
   document.querySelectorAll('a[href]').forEach(function (link) {
@@ -73,7 +97,9 @@ function initPageTransitions() {
 
       // Pick random direction for exit
       var exitDir = directions[Math.floor(Math.random() * directions.length)];
-      var exitSlices = setupSlices(exitDir);
+      var exitSetup = setupSlices(exitDir);
+      var exitSlices = exitSetup.slices;
+      var exitLogo = exitSetup.logo;
       var exitHorizontal = exitDir === 'horizontal';
 
       // Start slices collapsed
@@ -89,10 +115,14 @@ function initPageTransitions() {
         },
       });
 
+      gsap.set(exitLogo, { opacity: 0, scale: 0.5 });
+
       overlay.style.pointerEvents = 'all';
 
-      // Animate slices in to cover page
-      gsap.to(exitSlices, {
+      var exitTl = gsap.timeline();
+
+      // Slices cover the page
+      exitTl.to(exitSlices, {
         scaleY: exitHorizontal ? 1 : undefined,
         scaleX: exitHorizontal ? undefined : 1,
         duration: 0.5,
@@ -101,10 +131,18 @@ function initPageTransitions() {
           each: 0.06,
           from: 'random',
         },
+      });
+
+      // Logo scales up and appears
+      exitTl.to(exitLogo, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: 'power2.out',
         onComplete: function () {
           window.location.href = href;
         },
-      });
+      }, '-=0.15');
     });
   });
 }
