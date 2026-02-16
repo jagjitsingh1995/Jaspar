@@ -5,8 +5,19 @@ function initPageTransitions() {
     return;
   }
 
-  var SLICE_COUNT = 5;
   var directions = ['horizontal', 'vertical'];
+  var staggerFromOptions = ['start', 'end', 'center', 'edges', 'random'];
+  var easeOptions = ['power3.inOut', 'power4.inOut', 'expo.inOut', 'circ.inOut', 'back.inOut(1)'];
+  var logoEaseIn = ['power2.out', 'back.out(1.4)', 'elastic.out(1, 0.5)'];
+  var logoEaseOut = ['power2.in', 'power3.in', 'back.in(1.2)'];
+
+  function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function randRange(min, max) {
+    return min + Math.random() * (max - min);
+  }
 
   function createLogo() {
     var logo = document.createElement('div');
@@ -15,11 +26,10 @@ function initPageTransitions() {
     return logo;
   }
 
-  // Pick a random direction for each transition
-  function setupSlices(direction) {
+  function setupSlices(direction, count) {
     overlay.innerHTML = '';
     overlay.className = 'page-transition-overlay ' + direction;
-    for (var i = 0; i < SLICE_COUNT; i++) {
+    for (var i = 0; i < count; i++) {
       var slice = document.createElement('div');
       slice.className = 'slice';
       overlay.appendChild(slice);
@@ -29,14 +39,14 @@ function initPageTransitions() {
     return { slices: overlay.querySelectorAll('.slice'), logo: logo };
   }
 
-  // Entry animation: reveal the page by collapsing slices
-  var entryDir = directions[Math.floor(Math.random() * directions.length)];
-  var setup = setupSlices(entryDir);
+  // ---- ENTRY ANIMATION ----
+  var entryDir = pick(directions);
+  var entrySliceCount = Math.floor(randRange(3, 8));
+  var setup = setupSlices(entryDir, entrySliceCount);
   var slices = setup.slices;
   var logo = setup.logo;
   var isHorizontal = entryDir === 'horizontal';
 
-  // Set slices to fully cover the page
   gsap.set(slices, {
     scaleY: isHorizontal ? 1 : undefined,
     scaleX: isHorizontal ? undefined : 1,
@@ -49,35 +59,32 @@ function initPageTransitions() {
     },
   });
 
-  // Show logo first, then collapse slices
   gsap.set(logo, { opacity: 1, scale: 1 });
 
   var entryTl = gsap.timeline();
 
-  // Logo shrinks and fades out
   entryTl.to(logo, {
-    scale: 0.5,
+    scale: randRange(0.3, 0.7),
     opacity: 0,
-    duration: 0.4,
-    ease: 'power2.in',
+    duration: randRange(0.3, 0.5),
+    ease: pick(logoEaseOut),
   });
 
-  // Slices collapse to reveal page
   entryTl.to(slices, {
     scaleY: isHorizontal ? 0 : undefined,
     scaleX: isHorizontal ? undefined : 0,
-    duration: 0.6,
-    ease: 'power3.inOut',
+    duration: randRange(0.5, 0.8),
+    ease: pick(easeOptions),
     stagger: {
-      each: 0.08,
-      from: 'random',
+      each: randRange(0.04, 0.12),
+      from: pick(staggerFromOptions),
     },
     onComplete: function () {
       document.body.classList.remove('loading');
     },
   }, '-=0.2');
 
-  // Intercept internal links for exit animation
+  // ---- EXIT ANIMATION (link clicks) ----
   document.querySelectorAll('a[href]').forEach(function (link) {
     var href = link.getAttribute('href');
 
@@ -95,14 +102,13 @@ function initPageTransitions() {
     link.addEventListener('click', function (e) {
       e.preventDefault();
 
-      // Pick random direction for exit
-      var exitDir = directions[Math.floor(Math.random() * directions.length)];
-      var exitSetup = setupSlices(exitDir);
+      var exitDir = pick(directions);
+      var exitSliceCount = Math.floor(randRange(3, 8));
+      var exitSetup = setupSlices(exitDir, exitSliceCount);
       var exitSlices = exitSetup.slices;
       var exitLogo = exitSetup.logo;
       var exitHorizontal = exitDir === 'horizontal';
 
-      // Start slices collapsed
       gsap.set(exitSlices, {
         scaleY: exitHorizontal ? 0 : undefined,
         scaleX: exitHorizontal ? undefined : 0,
@@ -115,30 +121,28 @@ function initPageTransitions() {
         },
       });
 
-      gsap.set(exitLogo, { opacity: 0, scale: 0.5 });
+      gsap.set(exitLogo, { opacity: 0, scale: randRange(0.3, 0.6) });
 
       overlay.style.pointerEvents = 'all';
 
       var exitTl = gsap.timeline();
 
-      // Slices cover the page
       exitTl.to(exitSlices, {
         scaleY: exitHorizontal ? 1 : undefined,
         scaleX: exitHorizontal ? undefined : 1,
-        duration: 0.5,
-        ease: 'power3.inOut',
+        duration: randRange(0.4, 0.7),
+        ease: pick(easeOptions),
         stagger: {
-          each: 0.06,
-          from: 'random',
+          each: randRange(0.04, 0.1),
+          from: pick(staggerFromOptions),
         },
       });
 
-      // Logo scales up and appears
       exitTl.to(exitLogo, {
         opacity: 1,
         scale: 1,
-        duration: 0.4,
-        ease: 'power2.out',
+        duration: randRange(0.3, 0.5),
+        ease: pick(logoEaseIn),
         onComplete: function () {
           window.location.href = href;
         },
