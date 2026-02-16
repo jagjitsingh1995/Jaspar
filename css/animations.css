@@ -1,11 +1,33 @@
-/* ===== PAGE TRANSITION OVERLAY ===== */
+/* ===== PAGE TRANSITION OVERLAY — SLICING EFFECT ===== */
 .page-transition-overlay {
   position: fixed;
   inset: 0;
-  background-color: var(--gold-400);
   z-index: 9999;
+  pointer-events: none;
+  display: flex;
+}
+
+.page-transition-overlay.horizontal {
+  flex-direction: column;
+}
+
+.page-transition-overlay.vertical {
+  flex-direction: row;
+}
+
+.page-transition-overlay .slice {
+  background-color: var(--gold-400);
+  flex: 1;
+}
+
+.page-transition-overlay.horizontal .slice {
+  width: 100%;
   transform: scaleY(0);
-  transform-origin: bottom;
+}
+
+.page-transition-overlay.vertical .slice {
+  height: 100%;
+  transform: scaleX(0);
 }
 
 /* Body starts hidden, revealed after page load animation */

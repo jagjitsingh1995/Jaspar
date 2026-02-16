@@ -5,12 +5,24 @@
   :root {
     --container-padding: 1rem;
     --nav-height: 64px;
+    --space-3xl: 4rem;
+    --space-2xl: 3rem;
   }
 
   .grid--2,
   .grid--3,
   .grid--4 {
     grid-template-columns: 1fr;
+  }
+
+  /* Show max 3 featured projects on mobile */
+  .grid--3 > .project-card:nth-child(n+4) {
+    display: none;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
   }
 
   .stats-bar__grid {
@@ -57,10 +69,6 @@
   .filter-btn {
     white-space: nowrap;
     flex-shrink: 0;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
   }
 
   .lightbox__nav--prev {

@@ -10,11 +10,11 @@
 }
 
 .section--dark {
-  background-color: var(--charcoal-900);
+  background-color: #f0f0f0;
 }
 
 .section--medium {
-  background-color: var(--charcoal-700);
+  background-color: #fafafa;
 }
 
 .grid {

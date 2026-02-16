@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Jaspar Fabrication — Get a free quote for your railing, gate, fence, or custom metalwork project.">
-  <title>Contact Us — Jaspar Fabrication</title>
+  <meta name="description" content="Contact Jaspar Fabrication Ltd. — Get a free quote for your railing, gate, fence, or custom metalwork project.">
+  <title>Contact Us — Jaspar Fabrication Ltd.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,109 +17,9 @@
     /* Contact-specific styles */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: var(--space-2xl);
       align-items: start;
-    }
-
-    .form-group {
-      margin-bottom: var(--space-lg);
-      position: relative;
-    }
-
-    .form-group label {
-      display: block;
-      font-family: var(--font-subheading);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--charcoal-300);
-      margin-bottom: var(--space-sm);
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 0.875rem 1rem;
-      background-color: var(--charcoal-700);
-      border: 1px solid var(--charcoal-600);
-      border-radius: var(--radius-sm);
-      color: var(--white);
-      font-size: 1rem;
-      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--gold-400);
-      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
-    }
-
-    .form-group input.invalid,
-    .form-group textarea.invalid {
-      border-color: #e74c3c;
-    }
-
-    .form-group input.valid,
-    .form-group textarea.valid {
-      border-color: var(--gold-500);
-    }
-
-    .form-group textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .form-group select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%238a8a8a' stroke-width='2'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 1rem center;
-      cursor: pointer;
-    }
-
-    .form-group select option {
-      background-color: var(--charcoal-700);
-    }
-
-    .field-error {
-      display: block;
-      font-size: 0.8rem;
-      color: #e74c3c;
-      margin-top: 0.25rem;
-      min-height: 1.2em;
-    }
-
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: var(--space-xl);
-    }
-
-    .form-success.visible {
-      display: block;
-    }
-
-    .form-success__icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background-color: var(--gold-400);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto var(--space-lg);
-    }
-
-    .form-success__icon svg {
-      width: 32px;
-      height: 32px;
-      stroke: var(--charcoal-900);
-      fill: none;
-      stroke-width: 3;
     }
 
     .info-card {
@@ -175,7 +75,7 @@
 
     .map-container iframe {
       width: 100%;
-      height: 250px;
+      height: 350px;
       border: none;
       filter: grayscale(1) brightness(0.7);
       transition: filter var(--transition-base);
@@ -213,13 +113,13 @@
     });
   </script>
 
-  <div class="page-transition-overlay"></div>
+  <div class="page-transition-overlay"><div class="slice"></div><div class="slice"></div><div class="slice"></div><div class="slice"></div><div class="slice"></div></div>
   <canvas id="sparkles-canvas"></canvas>
 
   <!-- Navigation -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container navbar__inner">
-      <a href="index.html" class="navbar__logo"><img src="assets/images/logos/logo.svg" alt="Jaspar logo" class="navbar__logo-img">JASPAR <span>FABRICATION</span></a>
+      <a href="index.html" class="navbar__logo"><img src="assets/images/logos/logo.svg" alt="Jaspar logo" class="navbar__logo-img">JASPAR <span>FABRICATION LTD.</span></a>
       <div class="navbar__links">
         <a href="index.html" class="navbar__link">Home</a>
         <a href="about.html" class="navbar__link">About</a>
@@ -264,64 +164,7 @@
   <section class="section">
     <div class="container">
       <div class="contact-grid">
-        <!-- Form -->
-        <div class="anim-fade-left">
-          <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: var(--space-sm);">Send Us a Message</h2>
-          <p class="text-muted" style="margin-bottom: var(--space-xl);">Fill out the form below and we'll get back to you within 24 hours.</p>
-
-          <form class="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required placeholder="John Doe">
-              <span class="field-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required placeholder="john@example.com">
-              <span class="field-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
-              <span class="field-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="service">Service Required</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Select a service</option>
-                <option value="railings">Railings</option>
-                <option value="gates">Gates</option>
-                <option value="fences">Fences</option>
-                <option value="automation">Gate Automation</option>
-                <option value="custom">Custom Fabrication</option>
-                <option value="repairs">Repairs & Restoration</option>
-                <option value="other">Other</option>
-              </select>
-              <span class="field-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Project Details</label>
-              <textarea id="message" name="message" required placeholder="Tell us about your project — dimensions, materials, design preferences, timeline..."></textarea>
-              <span class="field-error"></span>
-            </div>
-
-            <button type="submit" class="btn btn--primary" style="width: 100%;">Send Message</button>
-
-            <div class="form-success">
-              <div class="form-success__icon">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <h3 style="color: var(--gold-400); margin-bottom: var(--space-sm);">Message Sent!</h3>
-              <p class="text-muted">Thank you for reaching out. We'll get back to you within 24 hours.</p>
-            </div>
-          </form>
-        </div>
-
-        <!-- Info Sidebar -->
+        <!-- Contact Info -->
         <div>
           <div class="anim-fade-right">
             <div class="info-card">
@@ -330,8 +173,8 @@
                 <circle cx="12" cy="10" r="3"/>
               </svg>
               <div>
-                <p class="info-card__title">Visit Us</p>
-                <p class="info-card__text">123 Industrial Avenue<br>Metalworks District<br>City, State 12345</p>
+                <p class="info-card__title">Location</p>
+                <p class="info-card__text">Surrey, BC</p>
               </div>
             </div>
           </div>
@@ -343,7 +186,7 @@
               </svg>
               <div>
                 <p class="info-card__title">Call Us</p>
-                <p class="info-card__text"><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                <p class="info-card__text"><a href="tel:+17789387243">+1 (778) 938-7243</a></p>
               </div>
             </div>
           </div>
@@ -364,11 +207,11 @@
           <!-- Map -->
           <div class="map-container anim-fade-up">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2422!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjEiTiA3NMKwMDAnMjEuNiJX!5e0!3m2!1sen!2sus!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d333919.7505513!2d-123.2236!3d49.1566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548676e1b0dacc1f%3A0x5c3e22e89e593d5f!2sLower%20Mainland%2C%20BC!5e0!3m2!1sen!2sca!4v1"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="Jaspar Fabrication location">
+              title="Jaspar Fabrication Ltd. — Surrey, BC">
             </iframe>
           </div>
 
@@ -381,6 +224,16 @@
               <tr><td>Sunday</td><td>Closed</td></tr>
             </table>
           </div>
+
+          <div class="anim-fade-up" style="margin-top: var(--space-lg);">
+            <h4 style="margin-bottom: var(--space-md); color: var(--gold-400);">Serving Areas</h4>
+            <p class="info-card__text" style="line-height: 1.8;">
+              Serving communities across British Columbia — from the Lower Mainland to the Interior and beyond. Whether you're in Vancouver, the Fraser Valley, the Okanagan, Vancouver Island, or anywhere in between, we'll bring precision metalwork to your project.
+            </p>
+            <p class="info-card__text" style="margin-top: var(--space-sm); font-style: italic;">
+              Contact us to discuss your project anywhere in BC.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -391,8 +244,8 @@
     <div class="container">
       <div class="footer__grid anim-stagger">
         <div>
-          <a href="index.html" class="navbar__logo" style="display:inline-block; margin-bottom: var(--space-lg);">JASPAR <span>FABRICATION</span></a>
-          <p class="footer__text">Precision crafted metal work for residential and commercial properties. Quality materials, expert craftsmanship, and exceptional service since 2009.</p>
+          <a href="index.html" class="navbar__logo" style="display:inline-block; margin-bottom: var(--space-lg);">JASPAR <span>FABRICATION LTD.</span></a>
+          <p class="footer__text">Precision crafted metal work for residential and commercial properties. Based in Surrey, BC. Serving clients province-wide across British Columbia.</p>
           <div class="footer__socials">
             <a href="#" class="footer__social-icon" aria-label="Facebook">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -422,15 +275,15 @@
         </div>
         <div>
           <h5 class="footer__heading">Contact</h5>
-          <p class="footer__text">123 Industrial Avenue<br>Metalworks District<br>City, State 12345</p>
+          <p class="footer__text">Surrey, BC<br>Serving all of British Columbia</p>
           <p class="footer__text" style="margin-top: var(--space-md);">
-            <a href="tel:+15551234567" class="footer__link">+1 (555) 123-4567</a>
+            <a href="tel:+17789387243" class="footer__link">+1 (778) 938-7243</a>
             <a href="mailto:info@jasparfabrication.com" class="footer__link">info@jasparfabrication.com</a>
           </p>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2024 Jaspar Fabrication. All rights reserved.</p>
+        <p>&copy; 2026 Jaspar Fabrication Ltd. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -441,7 +294,6 @@
   <script src="js/nav.js"></script>
   <script src="js/page-transition.js"></script>
   <script src="js/scroll-animations.js"></script>
-  <script src="js/contact.js"></script>
   <script src="js/sparkles.js"></script>
   <script src="js/main.js"></script>
 </body>

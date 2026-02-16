@@ -39,12 +39,12 @@ function initSparkles() {
 
     // Gold-ish colors to match welding sparks
     var colors = [
-      '#d4af37', // gold-400
-      '#e8c547', // gold-300
-      '#c8a84e', // gold-500
+      '#b8922e', // gold
+      '#d4af37', // bright gold
+      '#c8a84e', // warm gold
       '#ff8c00', // orange spark
+      '#e67e00', // deep orange
       '#ffaa33', // warm amber
-      '#ffffff', // white-hot
     ];
     var color = colors[Math.floor(Math.random() * colors.length)];
 
