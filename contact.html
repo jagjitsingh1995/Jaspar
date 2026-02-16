@@ -26,10 +26,11 @@
       display: flex;
       gap: var(--space-md);
       padding: var(--space-lg);
-      background-color: var(--charcoal-700);
-      border: 1px solid var(--charcoal-600);
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       margin-bottom: var(--space-md);
+      box-shadow: var(--shadow-sm);
       transition: border-color var(--transition-fast);
     }
 
@@ -47,18 +48,18 @@
     .info-card__title {
       font-family: var(--font-subheading);
       font-size: 1rem;
-      color: var(--white);
+      color: var(--text-primary);
       margin-bottom: 0.25rem;
     }
 
     .info-card__text {
       font-size: 0.9rem;
-      color: var(--charcoal-300);
+      color: var(--text-muted);
       line-height: 1.6;
     }
 
     .info-card__text a {
-      color: var(--charcoal-300);
+      color: var(--text-muted);
       transition: color var(--transition-fast);
     }
 
@@ -70,19 +71,19 @@
       border-radius: var(--radius-md);
       overflow: hidden;
       margin-top: var(--space-lg);
-      border: 1px solid var(--charcoal-600);
+      border: 1px solid var(--border-color);
     }
 
     .map-container iframe {
       width: 100%;
       height: 350px;
       border: none;
-      filter: grayscale(1) brightness(0.7);
+      filter: grayscale(0.3) brightness(0.95);
       transition: filter var(--transition-base);
     }
 
     .map-container:hover iframe {
-      filter: grayscale(0.5) brightness(0.8);
+      filter: grayscale(0) brightness(1);
     }
 
     .hours-table {
@@ -93,16 +94,16 @@
     .hours-table td {
       padding: 0.5rem 0;
       font-size: 0.9rem;
-      border-bottom: 1px solid var(--charcoal-600);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .hours-table td:first-child {
-      color: var(--charcoal-300);
+      color: var(--text-muted);
     }
 
     .hours-table td:last-child {
       text-align: right;
-      color: var(--white);
+      color: var(--text-primary);
     }
   </style>
 </head>

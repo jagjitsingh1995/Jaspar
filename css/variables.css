@@ -1,20 +1,24 @@
 :root {
-  /* Light theme palette */
-  --charcoal-900: #1a1a1a;
-  --charcoal-800: #f7f7f7;
-  --charcoal-700: #ffffff;
-  --charcoal-600: #e0e0e0;
-  --charcoal-300: #666666;
-  --charcoal-100: #2d2d2d;
+  /* Background colors (light theme) */
+  --bg-primary: #f7f7f7;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0f0f0;
+  --bg-dark: #1a1a1a;
 
-  /* Gold palette — deeper for contrast on light bg */
+  /* Text colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #444444;
+  --text-muted: #666666;
+  --text-light: #f5f5f5;
+
+  /* Border */
+  --border-color: #e0e0e0;
+
+  /* Gold palette */
   --gold-600: #9a7a1e;
   --gold-500: #b8922e;
   --gold-400: #b8922e;
   --gold-300: #c8a84e;
-
-  /* Neutrals */
-  --white: #1a1a1a;
 
   /* Fonts */
   --font-heading: 'Bebas Neue', sans-serif;

@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start \"\" \"C:\\\\Users\\\\jagjit.bilkhu\\\\source\\\\repos\\\\Jaspar\\\\index.html\")",
+      "WebSearch",
+      "WebFetch(domain:www.pexels.com)",
+      "WebFetch(domain:pixabay.com)",
+      "WebFetch(domain:coverr.co)",
+      "Bash(curl:*)",
+      "WebFetch(domain:mixkit.co)",
+      "Bash(git init:*)",
+      "WebFetch(domain:www.amazon.ca)",
+      "Bash(unzip:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git add:*)",
+      "Bash(git config:*)"
+    ]
+  }
+}

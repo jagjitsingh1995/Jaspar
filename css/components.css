@@ -16,14 +16,14 @@
 
 .btn--primary {
   background-color: var(--gold-400);
-  color: var(--charcoal-900);
+  color: #ffffff;
 }
 
 .btn--primary:hover {
   background-color: var(--gold-300);
-  color: var(--charcoal-900);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 20px rgba(184, 146, 46, 0.3);
 }
 
 .btn--outline {
@@ -34,7 +34,7 @@
 
 .btn--outline:hover {
   background-color: var(--gold-400);
-  color: var(--charcoal-900);
+  color: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -84,10 +84,23 @@
 }
 
 .navbar__logo span {
-  color: var(--white);
+  color: var(--text-primary);
 }
 
-/* Footer logo stays light on dark bg */
+/* Nav on hero (dark bg): light text */
+.navbar:not(.scrolled) .navbar__link {
+  color: #f5f5f5;
+}
+
+.navbar:not(.scrolled) .navbar__logo {
+  color: #d4af37;
+}
+
+.navbar:not(.scrolled) .navbar__logo span {
+  color: #f5f5f5;
+}
+
+/* Footer logo on dark bg */
 .footer .navbar__logo {
   color: #c8a84e;
 }
@@ -107,7 +120,7 @@
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--charcoal-100);
+  color: var(--text-primary);
   position: relative;
   padding: 0.25rem 0;
   transition: color var(--transition-fast);
@@ -134,19 +147,6 @@
   width: 100%;
 }
 
-/* Nav on hero: light text */
-.navbar:not(.scrolled) .navbar__link {
-  color: #f5f5f5;
-}
-
-.navbar:not(.scrolled) .navbar__logo {
-  color: #d4af37;
-}
-
-.navbar:not(.scrolled) .navbar__logo span {
-  color: #f5f5f5;
-}
-
 /* Hamburger */
 .hamburger {
   display: none;
@@ -159,13 +159,12 @@
 .hamburger__line {
   width: 28px;
   height: 2px;
-  background-color: var(--charcoal-900);
+  background-color: var(--text-primary);
   transition: all var(--transition-base);
   transform-origin: center;
 }
 
-/* On hero (transparent nav), hamburger should be light */
-.hero ~ .navbar .hamburger__line,
+/* On hero (transparent nav), hamburger is light */
 .navbar:not(.scrolled) .hamburger__line {
   background-color: #ffffff;
 }
@@ -209,7 +208,7 @@
 .mobile-nav__link {
   font-family: var(--font-heading);
   font-size: 2.5rem;
-  color: var(--white);
+  color: var(--text-primary);
   transition: color var(--transition-fast);
 }
 
@@ -220,8 +219,8 @@
 
 /* ===== CARDS ===== */
 .card {
-  background-color: var(--charcoal-700);
-  border: 1px solid var(--charcoal-600);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: var(--space-xl);
   box-shadow: var(--shadow-sm);
@@ -244,12 +243,12 @@
 .card__title {
   font-family: var(--font-subheading);
   font-size: 1.25rem;
-  color: var(--white);
+  color: var(--text-primary);
   margin-bottom: var(--space-sm);
 }
 
 .card__text {
-  color: var(--charcoal-300);
+  color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.7;
 }
@@ -274,7 +273,7 @@ div.project-card__image {
 .project-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(17, 17, 17, 0.9) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 60%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -381,8 +380,6 @@ div.project-card__image {
 .stats-bar {
   background-color: #1a1a1a;
   padding: var(--space-2xl) 0;
-  border-top: none;
-  border-bottom: none;
 }
 
 .stats-bar__grid {
@@ -428,7 +425,7 @@ div.project-card__image {
 .testimonial__quote {
   font-size: 1.25rem;
   font-style: italic;
-  color: var(--charcoal-100);
+  color: var(--text-secondary);
   max-width: 700px;
   margin: 0 auto var(--space-lg);
   line-height: 1.8;
@@ -466,7 +463,7 @@ div.project-card__image {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: var(--charcoal-600);
+  background-color: var(--border-color);
   border: none;
   cursor: pointer;
   transition: background-color var(--transition-fast);
@@ -516,7 +513,7 @@ div.project-card__image {
   align-items: center;
   gap: var(--space-sm);
   font-size: 0.85rem;
-  color: var(--charcoal-300);
+  color: var(--text-muted);
   margin-top: var(--space-md);
 }
 
@@ -530,19 +527,19 @@ div.project-card__image {
 }
 
 .breadcrumb__separator {
-  color: var(--charcoal-600);
+  color: var(--border-color);
 }
 
 /* ===== PLACEHOLDER IMAGE ===== */
 .placeholder-img {
   width: 100%;
   height: 100%;
-  background-color: var(--charcoal-700);
-  border: 1px solid var(--charcoal-600);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--charcoal-300);
+  color: var(--text-muted);
   font-family: var(--font-subheading);
   font-size: 0.85rem;
   text-transform: uppercase;
