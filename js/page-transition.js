@@ -81,6 +81,8 @@ function initPageTransitions() {
     },
     onComplete: function () {
       document.body.classList.remove('loading');
+      // Refresh ScrollTrigger after transition overlay clears so positions are accurate
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
     },
   }, '-=0.2');
 

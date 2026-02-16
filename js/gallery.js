@@ -41,18 +41,22 @@ function initFilters() {
 
   if (!buttons.length || !items.length) return;
 
-  // Entrance animation for gallery items (separate from anim-stagger)
+  // Entrance animation for gallery items
+  // Uses onEnter callback so items stay visible by default — no blank page if ScrollTrigger misfires
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    gsap.from(items, {
-      opacity: 0,
-      y: 30,
-      duration: 0.5,
-      ease: CONFIG.easing.smooth,
-      stagger: 0.05,
-      scrollTrigger: {
-        trigger: '.gallery-grid',
-        start: 'top 85%',
-        once: true,
+    ScrollTrigger.create({
+      trigger: '.gallery-grid',
+      start: 'top 85%',
+      once: true,
+      onEnter: function () {
+        gsap.from(items, {
+          opacity: 0,
+          y: 30,
+          duration: 0.5,
+          ease: CONFIG.easing.smooth,
+          stagger: 0.05,
+          clearProps: 'opacity,transform',
+        });
       },
     });
   }
@@ -64,6 +68,9 @@ function initFilters() {
       // Update active button
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
+      // Kill any pending animations on all items to prevent race conditions
+      items.forEach(item => gsap.killTweensOf(item));
 
       // Filter items
       items.forEach(item => {
