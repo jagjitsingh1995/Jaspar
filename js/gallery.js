@@ -41,6 +41,22 @@ function initFilters() {
 
   if (!buttons.length || !items.length) return;
 
+  // Entrance animation for gallery items (separate from anim-stagger)
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.from(items, {
+      opacity: 0,
+      y: 30,
+      duration: 0.5,
+      ease: CONFIG.easing.smooth,
+      stagger: 0.05,
+      scrollTrigger: {
+        trigger: '.gallery-grid',
+        start: 'top 85%',
+        once: true,
+      },
+    });
+  }
+
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.getAttribute('data-filter');

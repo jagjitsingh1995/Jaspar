@@ -224,6 +224,7 @@
   border: 1px solid var(--charcoal-600);
   border-radius: var(--radius-md);
   padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
 }
 
@@ -293,12 +294,12 @@ div.project-card__image {
 .project-card__title {
   font-family: var(--font-subheading);
   font-size: 1.25rem;
-  color: var(--white);
+  color: #f5f5f5;
 }
 
 .project-card__category {
   font-size: 0.85rem;
-  color: var(--gold-400);
+  color: #d4af37;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
