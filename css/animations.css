@@ -28,12 +28,35 @@
   z-index: 10000;
   pointer-events: none;
   opacity: 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
 }
 
 .page-transition-overlay .transition-logo img {
-  width: clamp(200px, 40vw, 400px);
+  width: clamp(80px, 15vw, 150px);
   height: auto;
   display: block;
+  filter: brightness(0) invert(0.1);
+}
+
+.page-transition-overlay .transition-logo__text {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  color: #1a1a1a;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.page-transition-overlay .transition-logo__text span {
+  display: block;
+  font-family: var(--font-subheading);
+  font-size: 0.28em;
+  letter-spacing: 0.18em;
+  font-weight: 300;
+  color: #2d2d2d;
+  margin-top: 0.15em;
 }
 
 .page-transition-overlay.horizontal .slice {

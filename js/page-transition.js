@@ -11,10 +11,7 @@ function initPageTransitions() {
   function createLogo() {
     var logo = document.createElement('div');
     logo.className = 'transition-logo';
-    var img = document.createElement('img');
-    img.src = 'assets/images/logos/logo.svg';
-    img.alt = 'Jaspar Fabrication LTD';
-    logo.appendChild(img);
+    logo.innerHTML = '<img src="assets/images/logos/logo.svg" alt="Jaspar Fabrication LTD"><div class="transition-logo__text">JASPAR<span>FABRICATION LTD</span></div>';
     return logo;
   }
 
