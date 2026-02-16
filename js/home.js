@@ -93,6 +93,12 @@ function initTestimonials() {
     dot.addEventListener('click', () => goTo(i));
   });
 
+  // Prev / Next buttons
+  const prevBtn = document.querySelector('.testimonial-nav--prev');
+  const nextBtn = document.querySelector('.testimonial-nav--next');
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+
   // Auto-advance every 5 seconds
   let autoPlay = setInterval(() => goTo(current + 1), 5000);
 
