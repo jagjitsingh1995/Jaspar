@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found — Jaspar Fabrication LTD">
+  <title>404 — Page Not Found | Jaspar Fabrication LTD</title>
+
+  <link rel="icon" href="assets/images/logos/logo.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <noscript><style>body{opacity:1!important;}</style></noscript>
+
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+
+    .error-page__code {
+      font-family: var(--font-heading);
+      font-size: clamp(6rem, 15vw, 12rem);
+      color: var(--gold-400);
+      line-height: 1;
+      margin-bottom: var(--space-sm);
+    }
+
+    .error-page__title {
+      font-family: var(--font-subheading);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .error-page__text {
+      color: var(--text-muted);
+      margin: 0 auto var(--space-xl);
+      max-width: 450px;
+    }
+
+    .error-page__links {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo"><img src="assets/images/logos/logo.svg" alt="Jaspar logo" class="navbar__logo-img">JASPAR <span>FABRICATION LTD</span></a>
+      <div class="navbar__links">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="about.html" class="navbar__link">About</a>
+        <a href="projects.html" class="navbar__link">Projects</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+        <a href="contact.html" class="btn btn--primary btn--sm">Get a Quote</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" aria-hidden="true">
+    <a href="index.html" class="mobile-nav__link">Home</a>
+    <a href="about.html" class="mobile-nav__link">About</a>
+    <a href="projects.html" class="mobile-nav__link">Projects</a>
+    <a href="contact.html" class="mobile-nav__link">Contact</a>
+    <a href="contact.html" class="btn btn--primary">Get a Quote</a>
+  </div>
+
+  <main class="error-page">
+    <div>
+      <p class="error-page__code">404</p>
+      <h1 class="error-page__title">Page Not Found</h1>
+      <p class="error-page__text">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+      <div class="error-page__links">
+        <a href="index.html" class="btn btn--primary">Back to Home</a>
+        <a href="contact.html" class="btn btn--outline">Contact Us</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/nav.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function() { initNav(); });</script>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+</body>
+</html>

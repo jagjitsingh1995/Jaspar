@@ -142,6 +142,106 @@
       text-align: right;
       color: var(--text-primary);
     }
+
+    /* Contact Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-label {
+      font-family: var(--font-subheading);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .form-input {
+      padding: 0.75rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .form-input::placeholder {
+      color: #aaa;
+    }
+
+    .form-input:focus {
+      border-color: var(--gold-500);
+      box-shadow: 0 0 0 3px rgba(184, 146, 46, 0.15);
+    }
+
+    .form-input.valid {
+      border-color: #4caf50;
+    }
+
+    .form-input.invalid {
+      border-color: #e53935;
+    }
+
+    .field-error {
+      font-size: 0.8rem;
+      color: #e53935;
+      min-height: 1.1em;
+    }
+
+    select.form-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--space-xl);
+      margin-top: var(--space-lg);
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--gold-500);
+      border-radius: var(--radius-md);
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    .form-success svg {
+      color: var(--gold-500);
+      margin-bottom: var(--space-md);
+    }
+
+    .form-success p {
+      color: var(--text-secondary);
+      max-width: none;
+    }
+
+    @media (max-width: 640px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body class="loading">
@@ -202,6 +302,51 @@
   <section class="section">
     <div class="container">
       <div class="contact-grid">
+        <!-- Contact Form -->
+        <div>
+          <h2 class="section-title" style="font-size: clamp(1.5rem, 3vw, 2.25rem);">Send Us a Message</h2>
+          <form class="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" id="name" name="name" class="form-input" required placeholder="John Smith">
+              <span class="field-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" name="email" class="form-input" required placeholder="john@example.com">
+              <span class="field-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (604) 000-0000">
+              <span class="field-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="service" class="form-label">Service Needed</label>
+              <select id="service" name="service" class="form-input" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option value="railings">Railings</option>
+                <option value="gates">Gates</option>
+                <option value="fences">Fences</option>
+                <option value="gate-automation">Gate Automation</option>
+                <option value="custom">Custom Fabrication</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="field-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-input" rows="5" required placeholder="Tell us about your project..."></textarea>
+              <span class="field-error"></span>
+            </div>
+            <button type="submit" class="btn btn--primary" style="width: 100%;">Send Message</button>
+          </form>
+          <div class="form-success">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <p>Thank you! Your message has been sent. We'll get back to you shortly.</p>
+          </div>
+        </div>
+
         <!-- Contact Info -->
         <div>
           <div class="info-card">
@@ -315,7 +460,12 @@
   <script src="js/nav.js"></script>
   <script src="js/page-transition.js"></script>
   <script src="js/scroll-animations.js"></script>
+  <script src="js/contact.js"></script>
   <script src="js/sparkles.js"></script>
   <script src="js/main.js"></script>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 </body>
 </html>

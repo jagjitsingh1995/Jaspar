@@ -5,18 +5,31 @@ function initNav() {
 
   if (!navbar) return;
 
-  // Sticky header - add scrolled class
+  // Back to top button
+  const backToTop = document.querySelector('.back-to-top');
+
+  // Sticky header + back-to-top visibility
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
+    if (backToTop) {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }
   });
 
   // Check on load
   if (window.scrollY > 50) {
     navbar.classList.add('scrolled');
+  }
+
+  if (backToTop) {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   // Hamburger toggle
