@@ -26,23 +26,14 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   z-index: 10000;
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 8vw, 6rem);
-  color: #1a1a1a;
-  text-align: center;
-  line-height: 1;
-  letter-spacing: 0.05em;
   pointer-events: none;
-  white-space: nowrap;
   opacity: 0;
 }
 
-.page-transition-overlay .transition-logo span {
+.page-transition-overlay .transition-logo img {
+  width: clamp(200px, 40vw, 400px);
+  height: auto;
   display: block;
-  font-family: var(--font-subheading);
-  font-size: 0.3em;
-  letter-spacing: 0.2em;
-  font-weight: 300;
 }
 
 .page-transition-overlay.horizontal .slice {
